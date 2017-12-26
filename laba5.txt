@@ -1,0 +1,54 @@
+ #include<stdio.h>
+typedef struct _Car {
+    char *name;
+    int mileage;
+    int age;
+}Car;
+void print(Car p) {
+    printf("%s (%d-year) - (%d 000 mileage)\n", p.name, p.age, p.mileage);
+}
+int main() {
+    Car cars[5];
+    cars[0].name = "Mercedes";
+    cars[0].mileage= 90;
+    cars[0].age = 2014;
+    cars[1].name = "Lambargini";
+    cars[1].mileage = 50;
+    cars[1].age = 2016;
+    cars[2].name = "Audi";
+    cars[2].mileage = 70;
+    cars[2].age = 2015;
+    cars[3].name = "Doodge";
+    cars[3].mileage = 10;
+    cars[3].age = 2017;
+    cars[4].name = "BMW";
+    cars[4].mileage = 200;
+    cars[4].age = 2012;
+    Car worst = cars[4];
+    for (int i = 4; i>=0; i--) {
+        if (cars[i].mileage<worst.mileage) {
+            worst = cars[i];
+        }
+    }
+    Car best = cars[0];
+    for (int i = 0; i<5; i++) {
+        if (cars[i].mileage>best.mileage) {
+            best = cars[i];
+        }
+    }
+
+    for (int i = 0; i<5; i++) {
+        if (cars[i].mileage == best.mileage) {
+            printf("The best mileage:\n");
+            print(cars[i]);
+        }
+        if (cars[i].mileage == worst.mileage) {
+            printf("\nThe worst mileage :\n");
+            print(cars[i]);
+        }
+        
+    
+    }
+
+return 0;
+}
